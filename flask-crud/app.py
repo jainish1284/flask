@@ -65,11 +65,8 @@ def update(id):
         hobby = ', '.join(hobby)
 
         cursor = mysql.connection.cursor()
-<<<<<<< HEAD
+
         cursor.execute('update register_master set firstname = %s, lastname = %s, username = %s, password = %s, gender = %s, address = %s, city = %s, hobby = %s where id = %s', (firstname, lastname, username, password, gender, address, city, hobby, id))
-=======
-        cursor.execute('update register_master set firstname=%s, lastname=%s, username=%s, password=%s, gender=%s, address=%s, city=%s, hobby=%s where id=%s', (firstname, lastname, username, password, gender, address, city, hobby, id))
->>>>>>> 8303cbc1d98c1911675a2cdd2717b8bed51aa66e
         cursor.connection.commit()
         cursor.close()
         return redirect('/')
