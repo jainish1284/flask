@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Register</title>
+    </head>
+    <body>
+        <center>
+            <form action="/update/{{ result[0] }}" method="POST">
+                <table>
+                    <tr>
+                        <td>Firstname : </td>
+                        <td><input type="text" name="firstname" value="{{ result[1] }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Lastname : </td>
+                        <td>
+                            <input type="text" name="lastname" value="{{ result[2] }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Username : </td>
+                        <td>
+                            <input type="text" name="username" value="{{ result[3] }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password : </td>
+                        <td>
+                            <input type="password" name="password" value="{{ result[4] }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender : </td>
+                        <td>
+                            <input type="radio" name="gender" value="male" {% if result[5]=="male" %}checked{% endif %}> Male<br>
+                            <input type="radio" name="gender" value="female" {% if result[5]=="female" %}checked{% endif %}> Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address : </td>
+                        <td>
+                            <textarea name="address">{{ result[6] }}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>City : </td>
+                        <td>
+                            <select name="city">
+                                <option value="newyork" {% if result[7]=='newyork' %}selected{% endif %}>New York</option>
+                                <option value="seattle" {% if result[7]=='seattle' %}selected{% endif %}>Seattle</option>
+                                <option value="lasvegas" {% if result[7]=='lasvegas' %}selected{% endif %}>Las Vegas</option>
+                                <option value="ontario" {% if result[7]=='ontario' %}selected{% endif %}>Ontario</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hobby : </td>
+                        {% set hobbies = result[8].split(', ') %}
+                        <td>
+                            <input type="checkbox" name="hobby" value="football" {% if "football" in hobbies %}checked{% endif %} > Football<br>
+                            <input type="checkbox" name="hobby" value="reading" {% if "reading" in hobbies %}checked{% endif %} > Reading<br>
+                            <input type="checkbox" name="hobby" value="swimming" {% if "swimming" in hobbies %}checked{% endif %} > Swimming<br>
+                            <input type="checkbox" name="hobby" value="hiking" {% if "hiking" in hobbies %}checked{% endif %} > Hiking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Update"></td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </body>
+</html>

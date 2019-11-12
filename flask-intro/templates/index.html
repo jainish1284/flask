@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <center>
+            <form action="/submit" method="POST">
+                <input type="text" name="first_name" id="firstname"><br>
+                <input type="text" name="last_name" id="lastname"><br>
+                <input type="submit" value="Fill It Up">
+            </form>
+            <div>
+                {% for result in session['results'] %}
+                    <p>Firstname : {{ result[0] }}</p>
+                    <p>Lastname : {{ result[1] }}</p><br>
+                {% endfor %}
+            </div>
+        </center>
+    </body>
+</html>

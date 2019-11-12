@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <center>
+            <h2>Data is here !</h2>
+            <div>
+                Search Here : <input type="search" name="searchfield">
+                Add New User : <a href="/register">Register New User Here !</a>
+            </div>
+            {% if results is defined %}
+                <table border="1px">
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Hobby</th>
+                    </tr>
+                    {% for record in results %}
+                        <tr>
+                            <td>{{record[1]}}</td>
+                            <td>{{record[2]}}</td>
+                            <td>{{record[3]}}</td>
+                            <td>{{record[4]}}</td>
+                            <td>{{record[5]}}</td>
+                            <td>{{record[6]}}</td>
+                            <td>{{record[7]}}</td>
+                            <td>{{record[8]}}</td>
+                            <td><a href="/update/{{record[0]}}">Update</a></td>
+                            <td><a href="/delete/{{record[0]}}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <h2>No records</h2>
+            {% endif %}
+        </center>
+    </body>
+</html>
